@@ -20,6 +20,13 @@ class PicturesController < ApplicationController
     end
   end
 
+  def all_pictures
+    @pictures = Picture.all
+    respond_to do |format|
+      format.json {render json: @pictures}
+    end
+  end
+
   # GET /pictures/new
   def new
     @picture = Picture.new
