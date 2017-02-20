@@ -19,12 +19,12 @@
 
       <div class="col s6 m4">
         <div class="card">
-          <div class="card-image">
+          <div class="card-image index-card-image">
             <%= image_tag picture.image.url %>
             <span class="card-title"><%= picture.name %></span>
           </div>
           <div class="card-content">
-            <p><%= picture.category.name %></p>
+            <p class="category"><strong>Category: </strong><%= picture.category.name %></p>
           </div>
           <div class="card-action">
             <%= link_to 'View', picture %>

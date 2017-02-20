@@ -14,11 +14,19 @@
   z-index: 2;
 }
 
-.card-image img {
+.index-card-image img {
   object-fit: cover !important;
   max-height: 200px;
+  &:hover {
+    filter: brightness(70%);
+  }
 }
 
 .index-add {
   margin-top: 2.1rem;
+}
+
+.category {
+  font-size: 0.75em;
+  font-weight: 300;
 }
