@@ -3,3 +3,9 @@
 <%= render 'form', picture: @picture %>
 
 <%= link_to 'Back', pictures_path %>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
