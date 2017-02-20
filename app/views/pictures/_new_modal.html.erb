@@ -1,0 +1,46 @@
+<div id="add-modal" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Add New Picture</h4>
+    <%= form_for new_picture do |f| %>
+            <% if picture.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+                  <ul>
+                    <% picture.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <div class="field">
+              <%= f.label :name %>
+              <%= f.text_field :name %>
+            </div>
+
+            <div class="field">
+              <%= f.label :category %>
+              <%= f.collection_select :category_id, Category.order(:name), :id, :name, :include_blank => false %>
+
+            </div>
+
+            <div class="field">
+              <%= f.label :image %>
+              <%= f.file_field :image %>
+              <% if f.object.image? %>
+                  <%= image_tag f.object.image.thumb.url %>
+                  <%= f.label :remove_image %>
+                  <%= f.check_box :remove_image %>
+              <% end %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+        <% end %>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat "><%= f.submit %></a>
+        </div>
+        </div>

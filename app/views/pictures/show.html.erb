@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @picture.name %>
-</p>
-
-<p>
-  <strong>Tag:</strong>
-  <%= @picture.tag %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@picture.image.url, :class => "thumb") %>
-</p>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<%= link_to 'Edit', edit_picture_path(@picture), :class => 'waves-effect waves-light btn' %>
+<%= link_to 'Back', pictures_path, :class => 'waves-effect waves-light btn' %>
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="row">
+  <div class="col m12">
+    <div class="card">
+      <div class="card-content">
+        <p><%= @picture.category.name %></p>
+      </div>
+      <div class="card-image">
+        <span class="card-title"><%= @picture.name %></span>
+        <%= image_tag(@picture.image.url, :class => "thumb") %>
+      </div>
+    </div>
+  </div>
+</div>

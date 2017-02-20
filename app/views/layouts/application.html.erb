@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="container">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Photo Server</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/pictures">Pictures</a></li>
+          <li><a href="/categories">Categories</a></li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

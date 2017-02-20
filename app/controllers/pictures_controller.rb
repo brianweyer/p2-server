@@ -1,10 +1,11 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy, :remove_image]
+  # before_action :set_category, only: [:category]
 
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.includes(:category)
     respond_to do |format|
         format.html
         format.json
@@ -23,7 +24,15 @@ class PicturesController < ApplicationController
   def all_pictures
     @pictures = Picture.all
     respond_to do |format|
-      format.json {render json: @pictures}
+      format.json {render :all_pictures}
+    end
+  end
+
+  def category
+    @pictures = Picture.where(category: params[:category])
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render :category}
     end
   end
 
@@ -82,8 +91,11 @@ class PicturesController < ApplicationController
       @picture = Picture.find(params[:id])
     end
 
+    # def set_category
+    #   @picture = Picture.where(:category => params[:category])
+    # end
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:name, :tag, :image)
+      params.require(:picture).permit(:name, :category_id, :image)
     end
 end
