@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   get '/all', to: 'pictures#all_pictures'
   get 'category/:category', to: 'pictures#category'
+  root to: 'pictures#index'
 end
